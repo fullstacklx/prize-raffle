@@ -9,7 +9,7 @@ import { setState } from './actions'
 import AppContainer from './components/App'
 
 var dummyState = fromJS({
-  pageTitle: 'React Redux Boilerplate'
+  pageTitle: 'Prize Raffle'
 })
 
 const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
