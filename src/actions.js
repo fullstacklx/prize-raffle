@@ -53,7 +53,9 @@ function removeWinner (winners, winnerIdx) {
 
 export const replaceWinner = winnerIdx => (dispatch, getState) => {
   dispatch(removeWinner(getState().get('winners').toJS(), winnerIdx))
-  dispatch(selectWinner(getState().get('candidates').toJS()))
+  if (getState().get('candidates').size > 0) {
+    dispatch(selectWinner(getState().get('candidates').toJS()))
+  }
 }
 
 export const drawWinner = () => (dispatch, getState) => {
