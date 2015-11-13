@@ -13,18 +13,23 @@ const twitterClient = new Twitter({
 const handleRequest = function (request, response) {
   try {
     dispatcher.dispatch(request, response)
-  } catch(err) {
+  } catch (err) {
     console.log(err)
   }
 }
 
 dispatcher.onGet('/tweets', function (req, res) {
+  var headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  }
+
   fetchTweets('#FullstackLX', function (err, data) {
     if (err) {
-      res.writeHead(500, { 'Content-Type': 'application/json' })
+      res.writeHead(500, headers)
       res.end(JSON.stringify({ error: true, message: err.toString() }))
     } else {
-      res.writeHead(200, { 'Content-Type': 'application/json' })
+      res.writeHead(200, headers)
       res.end(JSON.stringify(data))
     }
   })

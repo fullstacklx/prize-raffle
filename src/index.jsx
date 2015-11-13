@@ -1,25 +1,42 @@
+import 'babel-core/polyfill'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { fromJS } from 'immutable'
-import { createStore, applyMiddleware } from 'redux'
+import { Map, List } from 'immutable'
+import { compose, createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
 import reducer from './reducer'
 import { logger } from './middleware'
-import { setState } from './actions'
 import AppContainer from './components/App'
 
-var dummyState = fromJS({
-  pageTitle: 'Prize Raffle'
+// Redux DevTools store enhancers
+import { devTools } from 'redux-devtools'
+// React components for Redux DevTools
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
+
+var dummyState = Map({
+  winners: List(),
+  candidates: List()
 })
 
-const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
-const store = createStoreWithMiddleware(reducer)
-
-store.dispatch(setState(dummyState))
+const createStoreWithMiddleware = compose(
+  applyMiddleware(
+    logger,
+    thunkMiddleware
+  ),
+  devTools()
+)(createStore)
+const store = createStoreWithMiddleware(reducer, dummyState)
 
 ReactDOM.render(
-  <Provider store={ store }>
-    <AppContainer />
-  </Provider>,
+  <div>
+    <Provider store={ store }>
+      <AppContainer />
+    </Provider>
+    <DebugPanel top right bottom>
+      <DevTools store={ store } monitor={ LogMonitor } />
+    </DebugPanel>
+  </div>,
   document.getElementById('boilerplate_app')
 )
