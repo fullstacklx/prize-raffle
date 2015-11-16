@@ -10,12 +10,17 @@ const CandidateGrid = React.createClass({
   mixins: [PureRenderMixin],
 
   render: function () {
+    const styles = {
+      display: 'inline-block',
+      padding: '.5em'
+    }
+
     return (
       <div className='candidate-grid'>
         <h3>Candidates</h3>
         { this.props.candidates.map((user) =>
-          <div style={{ display: 'inline-block' }} key={ user.get('username') }>
-            <UserCard { ...user.toJS() } />
+          <div style={ styles } key={ user.get('username') }>
+            <UserCard imageURL={ user.get('imageURL') } />
           </div>
         )}
       </div>
