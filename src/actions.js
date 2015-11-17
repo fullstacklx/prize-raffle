@@ -2,7 +2,6 @@ import fetch from 'isomorphic-fetch'
 import _uniq from 'lodash.uniq'
 import Random from 'random-js'
 
-
 export const REQUEST_CANDIDATES = 'REQUEST_CANDIDATES'
 function requestCandidates (hashtag) {
   return {

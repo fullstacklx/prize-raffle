@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchCandidates, drawWinner, replaceWinner } from '../actions'
 import CandidateGrid from './CandidateGrid'
 import WinnerList from './WinnerList'
-import StartForm from './StartForm'
+import StartButton from './StartButton'
 import DrawButton from './DrawButton'
 
 export const App = React.createClass({
@@ -11,7 +11,8 @@ export const App = React.createClass({
     winners: React.PropTypes.object,
     candidates: React.PropTypes.object,
     fetchCandidates: React.PropTypes.func,
-    drawWinner: React.PropTypes.func
+    drawWinner: React.PropTypes.func,
+    replaceWinner: React.PropTypes.func
   },
 
   render: function () {
@@ -28,8 +29,12 @@ export const App = React.createClass({
           />
         : <p>No winners yet...</p> }
         { this.props.candidates.size > 0
-        ? <DrawButton drawWinner={ this.props.drawWinner } />
-        : <StartForm fetchCandidates={ this.props.fetchCandidates } /> }
+        ? <DrawButton
+          className={'btn btn-primary top-space'}
+          drawWinner={ this.props.drawWinner } />
+        : <StartButton
+          className={ 'btn btn-success' }
+          fetchCandidates={ this.props.fetchCandidates } /> }
       </div>
     )
   }

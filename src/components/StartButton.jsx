@@ -3,7 +3,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 const StartForm = React.createClass({
   propTypes: {
-    fetchCandidates: React.PropTypes.func
+    fetchCandidates: React.PropTypes.func,
+    className: React.PropTypes.string
   },
 
   mixins: [PureRenderMixin],
@@ -14,7 +15,9 @@ const StartForm = React.createClass({
 
   render: function () {
     return (
-      <button onClick={ this.onClickHandler }>Start</button>
+      <button
+        className={ this.props.className }
+        onClick={ this.onClickHandler }>Start</button>
     )
   }
 })

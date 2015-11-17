@@ -1,0 +1,9 @@
+.winner-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.winner-list li {
+    list-style-type: none;
+    margin-top: .5em;
+}
