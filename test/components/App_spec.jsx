@@ -6,7 +6,7 @@ import { App } from '../../src/components/App'
 const { renderIntoDocument, scryRenderedDOMComponentsWithTag } = ReactTestUtils
 
 describe('App', () => {
-  it('renders an h1 with a given pageTitle prop', () => {
+  xit('renders an h1 with a given pageTitle prop', () => {
     const component = renderIntoDocument(
       <App pageTitle={ 'Hello World' } />
     )

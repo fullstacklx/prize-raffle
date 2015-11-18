@@ -41,12 +41,14 @@
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
     "redux": "^3.0.3",
+    "redux-immutablejs": "0.0.7",
     "redux-thunk": "^1.0.0",
     "twitter": "^1.2.5"
   },
   "standard": {
     "globals": [
       "it",
+      "xit",
       "describe"
     ]
   }
