@@ -1,26 +1,22 @@
-# React Redux Boilerplate
+# Fullstack LX's Prize Raffle
 
 ## About
 
-This is a simple React + Redux web app boilerplate that is ready to run locally.
+This is the web app that we use at every Fullstack LX event to raffle some prizes randomly from tweets with the #FullstackLX hashtag.
 
-### Features
+It was showcased at the first edition for the "Let's build a React + Redux application" live coding talk.
 
-* React
-* Redux and react-redux
-* Immutable.js
-* Mocha & Chai for tests
-* Webpack & Babel (ES6)
-* [Standard](http://standardjs.com) coding style
+## TODO
 
-Currently no CSS framework is being used, but we are more than pleased to accept a pull request :)
+This app is currently a work in progress. If you find a bug or have an improvement feel free to submit a Pull Request.
+
 
 ## Install
 
 Just git clone the repo:
 
 ```
-git clone https://github.com/talkdesk/react-redux-boilerplate
+git clone https://github.com/fullstacklx/prize-raffle
 ```
 
 Then inside the folder run:
