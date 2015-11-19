@@ -35,6 +35,14 @@ To start the dev server locally with hot reloading (`http://localhost:8080`)
 npm start
 ```
 
+### Twitter Proxy
+
+You also need to start the server that fetched the tweets:
+
+```
+npm run server
+```
+
 ### Tests
 
 ```
