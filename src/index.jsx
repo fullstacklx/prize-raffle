@@ -11,35 +11,22 @@ import * as reducers from './reducers'
 import { logger } from './middleware'
 import AppContainer from './components/App'
 
-// Redux DevTools store enhancers
-import { devTools } from 'redux-devtools'
-// React components for Redux DevTools
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
-
 var dummyState = Map({
   winners: List(),
   candidates: List()
 })
 
 const createStoreWithMiddleware = compose(
-  applyMiddleware(
-    logger,
-    thunkMiddleware
-  ),
-  devTools()
+  applyMiddleware(logger, thunkMiddleware),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 const reducer = combineReducers(reducers)
 const store = createStoreWithMiddleware(reducer, dummyState)
 
 ReactDOM.render(
-  <div>
-    <Provider store={ store }>
-      <AppContainer />
-    </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={ store } monitor={ LogMonitor } />
-    </DebugPanel>
-  </div>,
+  <Provider store={ store }>
+    <AppContainer />
+  </Provider>,
   document.getElementById('boilerplate_app')
 )
