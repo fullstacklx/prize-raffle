@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
-    "test:watch": "npm run test -- --watch",
+    "test:watch": "npm run test -- --watch --watch-extensions jsx",
     "start": "webpack-dev-server --devtool eval --progress --colors --watch",
     "server": "node server",
     "build": "NODE_ENV=production webpack -p"
