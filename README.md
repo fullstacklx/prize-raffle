@@ -1,4 +1,4 @@
-# Fullstack LX's Prize Raffle
+# Fullstack LX's Prize Raffle [![Build Status](https://travis-ci.org/fullstacklx/prize-raffle.svg?branch=master)](https://travis-ci.org/fullstacklx/prize-raffle)
 
 ## About
 
