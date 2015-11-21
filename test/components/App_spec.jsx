@@ -6,14 +6,14 @@ import { App } from '../../src/components/App'
 const { renderIntoDocument, scryRenderedDOMComponentsWithTag } = ReactTestUtils
 
 describe('App', () => {
-  xit('renders an h1 with a given pageTitle prop', () => {
+  it('renders a div with the class container', () => {
     const component = renderIntoDocument(
-      <App pageTitle={ 'Hello World' } />
+      <App />
     )
 
-    const h1 = scryRenderedDOMComponentsWithTag(component, 'h1')
+    const div = scryRenderedDOMComponentsWithTag(component, 'div')
 
-    expect(h1.length).to.equal(1)
-    expect(h1[0].textContent).to.equal('Hello World')
+    expect(div.length).to.be.at.least(1)
+    expect(div[0].className).to.equal('container')
   })
 })

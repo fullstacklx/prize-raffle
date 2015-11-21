@@ -19,16 +19,16 @@ export const App = React.createClass({
     return (
       <div className='container'>
         <h1>Prize Raffle</h1>
-        { this.props.candidates.size > 0
+        { this.props.candidates && this.props.candidates.size > 0
         ? <CandidateGrid candidates={ this.props.candidates } />
         : <p>Click to fetch candidates...</p> }
-        { this.props.winners.size > 0
+        { this.props.winners && this.props.winners.size > 0
         ? <WinnerList
             winners={ this.props.winners }
             replaceWinner={ this.props.replaceWinner }
           />
         : <p>No winners yet...</p> }
-        { this.props.candidates.size > 0
+        { this.props.candidates && this.props.candidates.size > 0
         ? <DrawButton
           className={'btn btn-primary top-space'}
           drawWinner={ this.props.drawWinner } />
