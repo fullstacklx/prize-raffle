@@ -1,12 +1,13 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { List } from 'immutable'
 import UserCard from './UserCard'
 
 import './WinnerList.css'
 
 const WinnerList = React.createClass({
   propTypes: {
-    winners: React.PropTypes.object,
+    winners: React.PropTypes.instanceOf(List),
     replaceWinner: React.PropTypes.func
   },
 

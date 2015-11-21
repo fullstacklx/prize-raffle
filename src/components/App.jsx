@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchCandidates, drawWinner, replaceWinner } from '../actions'
+import { List } from 'immutable'
 import CandidateGrid from './CandidateGrid'
 import WinnerList from './WinnerList'
 import StartButton from './StartButton'
@@ -8,8 +9,8 @@ import DrawButton from './DrawButton'
 
 export const App = React.createClass({
   propTypes: {
-    winners: React.PropTypes.object,
-    candidates: React.PropTypes.object,
+    winners: React.PropTypes.instanceOf(List),
+    candidates: React.PropTypes.instanceOf(List),
     fetchCandidates: React.PropTypes.func,
     drawWinner: React.PropTypes.func,
     replaceWinner: React.PropTypes.func

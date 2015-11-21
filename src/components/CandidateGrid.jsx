@@ -1,10 +1,11 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { List } from 'immutable'
 import UserCard from './UserCard'
 
 const CandidateGrid = React.createClass({
   propTypes: {
-    candidates: React.PropTypes.object.isRequired
+    candidates: React.PropTypes.instanceOf(List).isRequired
   },
 
   mixins: [PureRenderMixin],
